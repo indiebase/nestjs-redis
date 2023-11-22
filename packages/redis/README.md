@@ -85,11 +85,11 @@ This lib requires **Node.js >=12.22.0**, **NestJS ^9.0.0**, **ioredis ^5.0.0**.
 
 ```sh
 # with npm
-npm install @liaoliaots/nestjs-redis ioredis
+npm install @indiebase/nestjs-redis ioredis
 # with yarn
-yarn add @liaoliaots/nestjs-redis ioredis
+yarn add @indiebase/nestjs-redis ioredis
 # with pnpm
-pnpm add @liaoliaots/nestjs-redis ioredis
+pnpm add @indiebase/nestjs-redis ioredis
 ```
 
 ## Usage
@@ -152,7 +152,7 @@ Examples of code:
 ```ts
 // redis-config.service.ts
 import { Injectable } from '@nestjs/common';
-import { RedisModuleOptions, RedisOptionsFactory } from '@liaoliaots/nestjs-redis';
+import { RedisModuleOptions, RedisOptionsFactory } from '@indiebase/nestjs-redis';
 
 @Injectable()
 export class RedisConfigService implements RedisOptionsFactory {
@@ -174,7 +174,7 @@ export class RedisConfigService implements RedisOptionsFactory {
 ```ts
 // app.module.ts
 import { Module } from '@nestjs/common';
-import { RedisModule } from '@liaoliaots/nestjs-redis';
+import { RedisModule } from '@indiebase/nestjs-redis';
 import { RedisConfigService } from './redis-config.service';
 
 @Module({
@@ -192,7 +192,7 @@ export class AppModule {}
 ```ts
 // my-redis.module.ts
 import { Module } from '@nestjs/common';
-import { RedisModule } from '@liaoliaots/nestjs-redis';
+import { RedisModule } from '@indiebase/nestjs-redis';
 import { RedisConfigService } from './redis-config.service';
 
 @Module({
@@ -248,16 +248,16 @@ Distributed under the MIT License. See `LICENSE` for more information.
 - [Official Redis Docker Image](https://hub.docker.com/_/redis)
 - [Official Bitnami Redis Docker Image](https://hub.docker.com/r/bitnami/redis)
 
-[npm-shield]: https://img.shields.io/npm/v/@liaoliaots/nestjs-redis/latest?style=for-the-badge
-[npm-url]: https://www.npmjs.com/package/@liaoliaots/nestjs-redis
-[downloads-shield]: https://img.shields.io/npm/dm/@liaoliaots/nestjs-redis?style=for-the-badge
-[downloads-url]: https://www.npmjs.com/package/@liaoliaots/nestjs-redis
+[npm-shield]: https://img.shields.io/npm/v/@indiebase/nestjs-redis/latest?style=for-the-badge
+[npm-url]: https://www.npmjs.com/package/@indiebase/nestjs-redis
+[downloads-shield]: https://img.shields.io/npm/dm/@indiebase/nestjs-redis?style=for-the-badge
+[downloads-url]: https://www.npmjs.com/package/@indiebase/nestjs-redis
 [stars-shield]: https://img.shields.io/github/stars/liaoliaots/nestjs-redis?style=for-the-badge
 [stars-url]: https://github.com/liaoliaots/nestjs-redis/stargazers
 [issues-shield]: https://img.shields.io/github/issues/liaoliaots/nestjs-redis?style=for-the-badge
 [issues-url]: https://github.com/liaoliaots/nestjs-redis/issues
-[license-shield]: https://img.shields.io/npm/l/@liaoliaots/nestjs-redis?style=for-the-badge
+[license-shield]: https://img.shields.io/npm/l/@indiebase/nestjs-redis?style=for-the-badge
 [license-url]: https://github.com/liaoliaots/nestjs-redis/blob/main/LICENSE
-[vulnerabilities-shield]: https://img.shields.io/snyk/vulnerabilities/npm/@liaoliaots/nestjs-redis?style=for-the-badge
+[vulnerabilities-shield]: https://img.shields.io/snyk/vulnerabilities/npm/@indiebase/nestjs-redis?style=for-the-badge
 [workflow-shield]: https://img.shields.io/github/actions/workflow/status/liaoliaots/nestjs-redis/testing.yaml?label=TESTING&style=for-the-badge
 [workflow-url]: https://github.com/liaoliaots/nestjs-redis/actions/workflows/testing.yaml

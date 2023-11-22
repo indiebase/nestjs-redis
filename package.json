@@ -1,5 +1,5 @@
 {
-  "name": "@liaoliaots/root",
+  "name": "@indiebase/root",
   "version": "9",
   "description": "Redis(ioredis) module for Nest framework (node.js).",
   "author": "LiaoLiao <yxiaosong002@gmail.com>",
@@ -66,12 +66,12 @@
       "@commitlint/config-conventional"
     ]
   },
-  "homepage": "https://github.com/liaoliaots/nestjs-redis#readme",
+  "homepage": "https://github.com/indiebase/nestjs-redis#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/liaoliaots/nestjs-redis.git"
+    "url": "git+https://github.com/indiebase/nestjs-redis.git"
   },
   "bugs": {
-    "url": "https://github.com/liaoliaots/nestjs-redis/issues"
+    "url": "https://github.com/indiebase/nestjs-redis/issues"
   }
 }

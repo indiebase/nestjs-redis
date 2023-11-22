@@ -12,24 +12,24 @@ $ npm install --save @nestjs/terminus
 // app.module.ts
 import { Module } from '@nestjs/common';
 import { TerminusModule } from '@nestjs/terminus';
-import { RedisModule } from '@liaoliaots/nestjs-redis';
-import { RedisHealthModule } from '@liaoliaots/nestjs-redis/health';
+import { RedisModule } from '@indiebase/nestjs-redis';
+import { RedisHealthModule } from '@indiebase/nestjs-redis/health';
 import { AppController } from './app.controller';
 
 @Module({
-    imports: [
-        RedisModule.forRoot({
-            readyLog: true,
-            config: {
-                host: 'localhost',
-                port: 6380,
-                password: 'redismain'
-            }
-        }),
-        TerminusModule,
-        RedisHealthModule
-    ],
-    controllers: [AppController]
+  imports: [
+    RedisModule.forRoot({
+      readyLog: true,
+      config: {
+        host: 'localhost',
+        port: 6380,
+        password: 'redismain'
+      }
+    }),
+    TerminusModule,
+    RedisHealthModule
+  ],
+  controllers: [AppController]
 })
 export class AppModule {}
 ```
@@ -44,25 +44,25 @@ export class AppModule {}
 // app.controller.ts
 import { Controller, Get } from '@nestjs/common';
 import { HealthCheckService, HealthCheck, HealthCheckResult } from '@nestjs/terminus';
-import { InjectRedis } from '@liaoliaots/nestjs-redis';
-import { RedisHealthIndicator } from '@liaoliaots/nestjs-redis/health';
+import { InjectRedis } from '@indiebase/nestjs-redis';
+import { RedisHealthIndicator } from '@indiebase/nestjs-redis/health';
 import Redis from 'ioredis';
 
 @Controller()
 export class AppController {
-    constructor(
-        private readonly health: HealthCheckService,
-        private readonly redisIndicator: RedisHealthIndicator,
-        @InjectRedis() private readonly redis: Redis
-    ) {}
+  constructor(
+    private readonly health: HealthCheckService,
+    private readonly redisIndicator: RedisHealthIndicator,
+    @InjectRedis() private readonly redis: Redis
+  ) {}
 
-    @Get('health')
-    @HealthCheck()
-    async healthChecks(): Promise<HealthCheckResult> {
-        return await this.health.check([
-            () => this.redisIndicator.checkHealth('redis', { type: 'redis', client: this.redis, timeout: 500 })
-        ]);
-    }
+  @Get('health')
+  @HealthCheck()
+  async healthChecks(): Promise<HealthCheckResult> {
+    return await this.health.check([
+      () => this.redisIndicator.checkHealth('redis', { type: 'redis', client: this.redis, timeout: 500 })
+    ]);
+  }
 }
 ```
 
@@ -70,18 +70,18 @@ export class AppController {
 
 ```json
 {
-    "status": "ok",
-    "info": {
-        "redis": {
-            "status": "up"
-        }
-    },
-    "error": {},
-    "details": {
-        "redis": {
-            "status": "up"
-        }
+  "status": "ok",
+  "info": {
+    "redis": {
+      "status": "up"
     }
+  },
+  "error": {},
+  "details": {
+    "redis": {
+      "status": "up"
+    }
+  }
 }
 ```
 
